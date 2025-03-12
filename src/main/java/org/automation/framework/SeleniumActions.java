@@ -37,6 +37,8 @@ public class SeleniumActions {
         return browserManager.getDriver().findElement(locator).isEnabled();
     }
 
+    //
+
     public boolean isVideoDisplayed(By locator) {
         return browserManager.getDriver().findElement(locator).isDisplayed();
     }

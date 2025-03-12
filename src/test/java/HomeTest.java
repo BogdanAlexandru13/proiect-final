@@ -42,14 +42,16 @@ public class HomeTest {
     }
 
     @Test
-    @DisplayName("Validate products test")
-    public void validateProducts() {
-        log.info("Validate products");
-        List<WebElement> listOfProducts = homePage.productsDisplayed();
-        assertNotNull(listOfProducts, "List of products is null");
-        assertEquals(3, listOfProducts.size(), "Number of products is: " + listOfProducts.size());
-        assertTrue(listOfProducts.get(2).getText().contains("Sistem Solar Fotovoltaic"));
+    @DisplayName("Validate video test")
+    public void validateVideo() {
+        log.info("Validate home page video");
+        boolean isBannerDisplayed = homePage.isVideoDisplayed();
+        boolean isBannerEnabled = homePage.isVideoEnabled();
+        assertTrue(isBannerDisplayed, "Video is not displayed");
+        assertTrue(isBannerEnabled, "Video is not enabled");
     }
+
+
 
     @AfterEach
     public void tearDown() {

@@ -32,4 +32,14 @@ public class SeleniumActions {
     public String getElementText(By locator) {
         return browserManager.getDriver().findElement(locator).getText();
     }
+
+    public boolean isVideoEnabled(By locator) {
+        return browserManager.getDriver().findElement(locator).isEnabled();
+    }
+
+    public boolean isVideoDisplayed(By locator) {
+        return browserManager.getDriver().findElement(locator).isDisplayed();
+    }
+
+
 }

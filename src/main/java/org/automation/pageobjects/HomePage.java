@@ -16,7 +16,7 @@ public class HomePage {
     SeleniumActions actions = new SeleniumActions(manager);
 
     private final static By HOME_PAGE_BANNER = By.xpath("/html/body/header/div[2]/div/div/div[1]/div/a/img");
-    private final static By HOME_PAGE_PRODUCTS = By.xpath("//*[@id=\"post-12\"]/div/div/section[8]/div/div/div/div/div[3]/div");
+    private final static By HOME_PAGE_ECO_HOUSE_VIDEO = By.xpath("/html/body/div[2]/article/div/div/section[5]/div/div[1]/div/div/video");
 
     public void openHomePage() {
         log.info("Open home page");
@@ -40,8 +40,18 @@ public class HomePage {
         return actions.isElementEnabled(HOME_PAGE_BANNER);
     }
 
-    public List<WebElement> productsDisplayed() {
-        log.info("Check if products are displayed");
-        return actions.getElements(HOME_PAGE_PRODUCTS);
+    public boolean isVideoDisplayed() {
+        log.info("Check if video is displayed");
+        return actions.isVideoDisplayed(HOME_PAGE_ECO_HOUSE_VIDEO);
     }
+
+    public boolean isVideoEnabled() {
+        log.info("Check if video is enabled");
+        return actions.isVideoEnabled(HOME_PAGE_ECO_HOUSE_VIDEO);
+    }
+
+
+    //public List<WebElement> productsDisplayed() {
+    //   log.info("Check if products are displayed");
+    //  return actions.getElements(HOME_PAGE_PRODUCTS);
 }

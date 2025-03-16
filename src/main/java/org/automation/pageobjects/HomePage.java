@@ -31,27 +31,20 @@ public class HomePage {
     }
 
     public boolean isBannerDisplayed() {
-        log.info("Check if banner is displayed");
+        log.info("Check if Element is displayed");
         return actions.isElementDisplayed(HOME_PAGE_BANNER);
     }
 
     public boolean isBannerEnabled() {
-        log.info("Check if banner is enabled");
+        log.info("Check if Element is enabled");
         return actions.isElementEnabled(HOME_PAGE_BANNER);
     }
 
-    public boolean isVideoDisplayed() {
-        log.info("Check if video is displayed");
-        return actions.isVideoDisplayed(HOME_PAGE_ECO_HOUSE_VIDEO);
-    }
 
-    public boolean isVideoEnabled() {
-        log.info("Check if video is enabled");
-        return actions.isVideoEnabled(HOME_PAGE_ECO_HOUSE_VIDEO);
-    }
 
 
     //public List<WebElement> productsDisplayed() {
-    //   log.info("Check if products are displayed");
-    //  return actions.getElements(HOME_PAGE_PRODUCTS);
+       //log.info("Check if products are displayed");
+      // return actions.getElements(HOME_PAGE_PRODUCTS);
+    //}
 }

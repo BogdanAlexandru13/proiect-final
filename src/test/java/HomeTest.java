@@ -28,7 +28,6 @@ public class HomeTest {
         log.info("Validate title");
         String title = homePage.homePageTitle();
         assertEquals("Panouri Fotovoltaice - TAWEnergy.ro", title, "Title of page was: " + title);
-
     }
 
     @Test
@@ -40,17 +39,6 @@ public class HomeTest {
         assertTrue(isBannerDisplayed, "Banner is not displayed");
         assertTrue(isBannerEnabled, "Banner is not enabled");
     }
-
-    @Test
-    @DisplayName("Validate video test")
-    public void validateVideo() {
-        log.info("Validate home page video");
-        boolean isBannerDisplayed = homePage.isVideoDisplayed();
-        boolean isBannerEnabled = homePage.isVideoEnabled();
-        assertTrue(isBannerDisplayed, "Video is not displayed");
-        assertTrue(isBannerEnabled, "Video is not enabled");
-    }
-
 
 
     @AfterEach

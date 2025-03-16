@@ -15,7 +15,7 @@ public class HomePage {
     BrowserManager manager = new BrowserManager();
     SeleniumActions actions = new SeleniumActions(manager);
 
-    private final static By HOME_PAGE_BANNER = By.xpath("/html/body/header/div[2]/div/div/div[1]/div/a/img");
+    private final static By HOME_PAGE_BANNER = By.xpath("/html/body/header/div[2]/div/div/div[1]/div/a");
     private final static By HOME_PAGE_ECO_HOUSE_VIDEO = By.xpath("/html/body/div[2]/article/div/div/section[5]/div/div[1]/div/div/video");
 
     public void openHomePage() {
@@ -23,6 +23,7 @@ public class HomePage {
         manager.openBrowser();
         manager.getDriver().get("https://tawenergy.ro/");
         manager.getDriver().manage().window().maximize();
+        actions.waitElementToBeClickable(HOME_PAGE_BANNER, 10);
     }
 
     public String homePageTitle() {

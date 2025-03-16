@@ -6,6 +6,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import java.util.List;
@@ -23,18 +24,18 @@ public class LoginTawTest {
     }
 
     @Test
-    @DisplayName("Taw search admin users test")
+    @DisplayName("Taw login test")
     public void loginTest() {
         login.loginTaw();
-        List<WebElement> searchResults = login.searchItemLeftPanel("Admin");
+        List<WebElement> searchResults = login.searchItemLeftPanel("Nume");
         String result = null;
         for (WebElement element : searchResults) {
-            if (element.getText().equals("Admin")) {
+            if (element.getText().equals("Nume")) {
                 result = element.getText();
             }
         }
-        assertEquals("Admin", result, "I found: " + result);
-        login.clickOnResult("Admin");
+        assertEquals("Nume", result, "I found: " + result);
+        login.clickOnResult("tiriplicabogdan@gmail.com");
         login.searchAdminPage("johndoe1234", 5);
     }
 

@@ -20,6 +20,7 @@ public class HomeTest {
     @BeforeEach
     public void setUp() {
         homePage.openHomePage();
+
     }
 
     @Test

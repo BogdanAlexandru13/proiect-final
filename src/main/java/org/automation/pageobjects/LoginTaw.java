@@ -8,7 +8,6 @@ import org.automation.framework.SeleniumActions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-import java.time.Duration;
 import java.util.List;
 
 public class LoginTaw {
@@ -17,22 +16,24 @@ public class LoginTaw {
     BrowserManager manager = new BrowserManager();
     SeleniumActions actions = new SeleniumActions(manager);
 
-    private final static By USERNAME_FIELD = By.xpath("//*[@id=\"username\"]");
-    private final static By PASSWORD_FIELD = By.xpath("//*[@id=\"password\"]");
-    private final static By SUBMIT_BUTTON = By.xpath("//*[@id=\"customer_login\"]/div[1]/form/div[3]/button");
-    private final static By SEARCH_BUTTON = By.xpath("/html/body/header/div[2]/div/div/div[2]/div/div[2]/span[1]/svg");
-    private final static By SEARCH_RESULT = By.xpath("//*[@id=\"s\"]");
-    private final static By SEARCH_BOX_PAGE = By.xpath("//div[@class='oxd-input-group oxd-input-field-bottom-space']//input[@class='oxd-input oxd-input--active']");
+    private final static By USERNAME_FIELD = By.xpath("//input[@id='username']");
+    private final static By PASSWORD_FIELD = By.xpath("//input[@id='password']");
+    private final static By SUBMIT_BUTTON = By.xpath("//div[@class='g-recaptcha']");
+    private final static By SEARCH_BUTTON = By.xpath("//span[@class='sr-search-btn']");
+    private final static By SEARCH_RESULT = By.xpath("//input[@id='s']");
+    private final static By SEARCH_BOX_PAGE = By.xpath("//input[@id='s']");
     private final static By SEARCH_BUTTON_ADMIN_PAGE = By.xpath("//button[@class='oxd-button oxd-button--medium oxd-button--secondary orangehrm-left-space']");
-    private final static By SPINNER = By.xpath("//div[@class='spinner']");
+    private final static By SPINNER = By.xpath("//*[@id=\"recaptcha-anchor\"]/div[3]");
     private final static By ADMIN_PAGE_RESULT = By.xpath("//div[@class='admin-page-result']");
     private final static By RESET_ADMIN_SEARCH = By.xpath("//button[@class='reset-admin-search']");
+    private final static By NO_ROBOT_BUTTON = By.xpath( "//div[@class='g-recaptcha']");
 
     public void openTawLoginPage() {
         log.info("Open Taw login page");
         manager.openBrowser();
-        manager.getDriver().get("https://tawenergy.ro/my-account/");
+        manager.getDriver().get("`https://tawenergy.ro/my-account/`");
         manager.getDriver().manage().window().maximize();
+        actions.waitElementToBeClickable(USERNAME_FIELD, 10);
     }
 
     public void loginTaw() {
@@ -43,6 +44,12 @@ public class LoginTaw {
         actions.waitElementToBeClickable(USERNAME_FIELD, 10);
         actions.sendKeys(USERNAME_FIELD, user);
         actions.sendKeys(PASSWORD_FIELD, pass);
+        //actions.waitElementToBeClickable(NO_ROBOT_BUTTON, 5);
+        actions.clickElement(NO_ROBOT_BUTTON);
+
+        actions.waitToSpinnerToHide(SPINNER, 10);
+
+        actions.waitElementToBeClickable(SUBMIT_BUTTON, 10);
         actions.clickElement(SUBMIT_BUTTON);
     }
 
@@ -71,10 +78,10 @@ public class LoginTaw {
     }
 
     public String resetAdminSearch() throws InterruptedException {
-        actions.clickElement(RESET_ADMIN_SEARCH);
+       actions.clickElement(RESET_ADMIN_SEARCH);
 //        Thread.sleep(10000);
-        actions.waitToSpinnerToHide(SPINNER, 10);
-        return actions.getElementText(By.xpath("//*[@id=\"app\"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[1]/div/div[2]/input"));
+      actions.waitToSpinnerToHide(SPINNER, 10);
+     return actions.getElementText(By.xpath("//*[@id=\"app\"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[1]/div/div[2]/input"));
     }
 
 

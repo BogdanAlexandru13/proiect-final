@@ -5,6 +5,7 @@ import org.apache.logging.log4j.Logger;
 import org.automation.framework.BrowserManager;
 import org.automation.framework.SeleniumActions;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -30,6 +31,11 @@ public class CreateAccountPage {
 
     public void clickCreateAccountButton() {
         log.info("Click create account button");
+
+        //Dimension laptopScreen = new Dimension;
+        manager.getDriver().manage().window().maximize();
+        actions.waitElementToBeClickable(INREGISTRARE_LOGARE_BUTTON, 10);
+
         actions.clickElement(INREGISTRARE_LOGARE_BUTTON);
     }
 

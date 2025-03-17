@@ -25,7 +25,7 @@ public class LoginTaw {
     //private final static By COOCKIE_BUTTON = By.xpath("//button[normalize-space()='Permite totul']");
     //private final static By SEARCH_BOX_PAGE = By.xpath("//input[@id='s']");
     private final static By SPINNER = By.xpath("/*[@id=\"recaptcha-anchor\"]/div[4]");
-    private final static By NO_ROBOT_BUTTON = By.xpath("/html/body/div[2]/div[3]/div[1]/div/div/span/div[4]);
+    private final static By NO_ROBOT_BUTTON = By.xpath("//div[@class='g-recaptcha']");
 
 
     public void openTawLoginPage() {
@@ -45,10 +45,11 @@ public class LoginTaw {
         actions.sendKeys(USERNAME_FIELD, user);
         actions.sendKeys(PASSWORD_FIELD, pass);
 
-        actions.waitToSpinnerToHide(SPINNER, 10);
 
-        actions.waitElementToBeClickable(NO_ROBOT_BUTTON, 10);
+
+        //actions.waitElementToBeClickable(NO_ROBOT_BUTTON, 10);
         actions.clickElement(NO_ROBOT_BUTTON);
+        actions.waitToSpinnerToHide(SPINNER, 10);
 
 
         actions.waitElementToBeClickable(SUBMIT_BUTTON, 10);

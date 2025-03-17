@@ -26,16 +26,6 @@ public class LoginTawTest {
     @DisplayName("Taw log in test")
     public void loginTest() {
         login.loginTaw();
-       // List<WebElement> searchResults = login.searchItemLeftPanel("Nume");
-       // String result = null;
-       // for (WebElement element : searchResults) {
-         //   if (element.getText().equals("Nume")) {
-                //result = element.getText();
-          //  }
-       // }
-        //assertEquals("Admin", result, "I found: " + result);
-       // login.clickOnResult("Admin");
-       // login.searchAdminPage("johndoe1234", 5);
     }
 
     @AfterEach
